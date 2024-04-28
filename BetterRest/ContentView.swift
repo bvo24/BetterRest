@@ -44,6 +44,7 @@ struct ContentView: View {
                 VStack(alignment: .leading, spacing: 0){
                     Text("Daily coffee intake")
                         .font(.headline)
+                    //Short cut for handling singular / plural
                     Stepper("^[\(coffeeAmmount) cup](inflect: true)", value: $coffeeAmmount, in: 0...20)
                 }
             }
