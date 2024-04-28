@@ -12,16 +12,19 @@ struct ContentView: View {
     
     
     var body: some View {
-        //Displaying only hours and minutes
-        //DatePicker("Please enter a date", selection: $wakeUp, displayedComponents: .hourAndMinute)
-        //Limits on date
-        DatePicker("Please enter a date", selection: $wakeUp, in: Date.now...)
-            .labelsHidden()
-        
+        Text(Date.now, format: .dateTime.day().month().year())
     }
     func exampleDates(){
-        let tomorrow = Date.now.addingTimeInterval(86400)
-        let range = Date.now...tomorrow
+//        var component = DateComponents()
+//        component.hour = 8
+//        component.minute = 0
+//        let date = Calendar.current.date(from: component) ?? .now
+        
+        //Using this helps handle cases like day light saving etc.
+        let component =  Calendar.current.dateComponents([.hour, .minute], from: .now)
+        let hour = component.hour ?? 0
+        let minute = component.minute ?? 0
+        
     }
     
 }
